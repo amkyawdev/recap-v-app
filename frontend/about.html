@@ -1,0 +1,129 @@
+<!-- frontend/about.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>About | Movie Recap App</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-film"></i>
+                <span>MovieRecap</span>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <div class="nav-menu" id="nav-menu">
+            <ul>
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="editing.html"><i class="fas fa-edit"></i> Editor</a></li>
+                <li><a href="preview.html"><i class="fas fa-eye"></i> Preview</a></li>
+                <li><a href="about.html" class="active"><i class="fas fa-info-circle"></i> About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="about-header">
+            <h1><i class="fas fa-info-circle"></i> About Movie Recap App</h1>
+        </div>
+
+        <div class="about-content">
+            <section class="about-section">
+                <h2>What is Movie Recap App?</h2>
+                <p>Movie Recap App is a powerful web-based tool that allows content creators, movie enthusiasts, and video editors to burn subtitles into videos with custom styling. Built with modern web technologies and powered by FFmpeg, it provides a seamless experience for creating professional recap videos.</p>
+            </section>
+
+            <section class="about-section">
+                <h2>How It Works</h2>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Upload</h3>
+                            <p>Upload your video file (MP4, MOV, AVI) and matching SRT subtitle file</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>Customize</h3>
+                            <p>Edit subtitle text, timings, and apply custom styling (font, size, color, background)</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>Render</h3>
+                            <p>FFmpeg burns subtitles directly into video frames for permanent styling</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h3>Download</h3>
+                            <p>Get your finished video ready for sharing on social media or platforms</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="about-section">
+                <h2>Technology Stack</h2>
+                <div class="tech-grid">
+                    <div class="tech-card">
+                        <i class="fab fa-python"></i>
+                        <h3>Python</h3>
+                        <p>FastAPI backend for high-performance API endpoints</p>
+                    </div>
+                    <div class="tech-card">
+                        <i class="fas fa-video"></i>
+                        <h3>FFmpeg</h3>
+                        <p>Industry-standard video processing & subtitle burning</p>
+                    </div>
+                    <div class="tech-card">
+                        <i class="fab fa-html5"></i>
+                        <h3>HTML5/CSS3</h3>
+                        <p>Modern responsive design with mobile-first approach</p>
+                    </div>
+                    <div class="tech-card">
+                        <i class="fab fa-js"></i>
+                        <h3>JavaScript</h3>
+                        <p>Dynamic UI updates and API integration</p>
+                    </div>
+                    <div class="tech-card">
+                        <i class="fab fa-docker"></i>
+                        <h3>Docker</h3>
+                        <p>Containerized deployment for consistent environment</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="about-section">
+                <h2>Features</h2>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check-circle"></i> Full SRT editing with real-time preview</li>
+                    <li><i class="fas fa-check-circle"></i> Custom font, size, color, and background styling</li>
+                    <li><i class="fas fa-check-circle"></i> Mobile-first responsive design with hamburger menu</li>
+                    <li><i class="fas fa-check-circle"></i> FFmpeg-powered subtitle burning</li>
+                    <li><i class="fas fa-check-circle"></i> Docker support for easy deployment</li>
+                    <li><i class="fas fa-check-circle"></i> Progress tracking during rendering</li>
+                    <li><i class="fas fa-check-circle"></i> Multiple quality output options</li>
+                </ul>
+            </section>
+        </div>
+    </main>
+
+    <script src="assets/js/app.js"></script>
+</body>
+</html>
