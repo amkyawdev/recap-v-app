@@ -1,0 +1,95 @@
+<!-- frontend/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Movie Recap App | Create Stunning Video Recaps</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Hamburger Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-film"></i>
+                <span>MovieRecap</span>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <div class="nav-menu" id="nav-menu">
+            <ul>
+                <li><a href="index.html" class="active"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="editing.html"><i class="fas fa-edit"></i> Editor</a></li>
+                <li><a href="preview.html"><i class="fas fa-eye"></i> Preview</a></li>
+                <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container">
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Create Movie Recaps <span class="gradient-text">in Minutes</span></h1>
+                <p>Upload your video and SRT file, customize subtitles with beautiful styles, and render professional movie recap videos instantly.</p>
+                <div class="hero-buttons">
+                    <a href="editing.html" class="btn btn-primary">
+                        <i class="fas fa-plus-circle"></i> Get Started
+                    </a>
+                    <a href="about.html" class="btn btn-secondary">
+                        <i class="fas fa-play-circle"></i> Watch Demo
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="demo-preview">
+                    <i class="fas fa-video"></i>
+                    <div class="demo-subtitle">Preview your subtitles with custom styles</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="features">
+            <h2>Powerful Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-palette"></i>
+                    <h3>Custom Styling</h3>
+                    <p>Change font, size, color, and background of subtitles with real-time preview</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-magic"></i>
+                    <h3>FFmpeg Powered</h3>
+                    <p>Professional video processing with hardware acceleration support</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Mobile First</h3>
+                    <p>Fully responsive design that works perfectly on all devices</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-clock"></i>
+                    <h3>Fast Rendering</h3>
+                    <p>Quick subtitle burning and video rendering with progress tracking</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Loader -->
+    <div class="loader-overlay" id="loader">
+        <div class="loader-spinner"></div>
+        <p>Loading...</p>
+    </div>
+
+    <script src="assets/js/app.js"></script>
+</body>
+</html>
