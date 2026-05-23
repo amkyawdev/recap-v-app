@@ -1,0 +1,38 @@
+# wrangler.toml
+name = "movie-recap-worker"
+main = "src/index.ts"
+compatibility_date = "2024-01-01"
+
+# R2 Bucket အတွက်
+[[r2_buckets]]
+binding = "VIDEO_BUCKET"
+bucket_name = "movie-recap-videos"
+preview_bucket_name = "movie-recap-videos-preview"
+
+# KV Namespace အတွက်
+[[kv_namespaces]]
+binding = "JOB_STORE"
+id = "your-kv-namespace-id"
+preview_id = "your-preview-kv-id"
+
+# Environment Variables
+[vars]
+MAX_VIDEO_SIZE = "104857600"
+FFMPEG_VERSION = "6.0"
+
+# Routes
+routes = [
+    { pattern = "movie-recap.yourdomain.com/*", zone_id = "your-zone-id" }
+]
+
+# Production အတွက်
+[env.production]
+routes = [
+    { pattern = "movie-recap.yourdomain.com/*", zone_id = "your-zone-id" }
+]
+
+# အခြား environment များ
+[env.staging]
+routes = [
+    { pattern = "staging-movie-recap.yourdomain.com/*", zone_id = "your-zone-id" }
+]
