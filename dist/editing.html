@@ -1,0 +1,201 @@
+<!-- frontend/editing.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Edit Subtitles | Movie Recap Editor</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-film"></i>
+                <span>MovieRecap</span>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <div class="nav-menu" id="nav-menu">
+            <ul>
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="editing.html" class="active"><i class="fas fa-edit"></i> Editor</a></li>
+                <li><a href="preview.html"><i class="fas fa-eye"></i> Preview</a></li>
+                <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="editor-header">
+            <h1><i class="fas fa-subtitle"></i> Subtitle Editor</h1>
+            <p>Upload video & SRT, then customize your subtitles</p>
+        </div>
+
+        <!-- Upload Section -->
+        <div class="upload-section">
+            <div class="upload-card">
+                <div class="upload-area" id="videoUploadArea">
+                    <i class="fas fa-video"></i>
+                    <p>Drop video file here or click to upload</p>
+                    <small>MP4, MOV, AVI up to 500MB</small>
+                    <input type="file" id="videoInput" accept="video/*" hidden>
+                </div>
+                <div class="video-info" id="videoInfo" style="display:none;">
+                    <i class="fas fa-check-circle"></i>
+                    <span id="videoName"></span>
+                    <button class="btn-icon" id="removeVideo"><i class="fas fa-times"></i></button>
+                </div>
+            </div>
+
+            <div class="upload-card">
+                <div class="upload-area" id="srtUploadArea">
+                    <i class="fas fa-file-alt"></i>
+                    <p>Drop SRT file here or click to upload</p>
+                    <small>SubRip (.srt) format</small>
+                    <input type="file" id="srtInput" accept=".srt" hidden>
+                </div>
+                <div class="video-info" id="srtInfo" style="display:none;">
+                    <i class="fas fa-check-circle"></i>
+                    <span id="srtName"></span>
+                    <button class="btn-icon" id="removeSrt"><i class="fas fa-times"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Style Controls -->
+        <div class="style-controls">
+            <h3><i class="fas fa-sliders-h"></i> Subtitle Styling</h3>
+            <div class="controls-grid">
+                <!-- Font Dropdown -->
+                <div class="control-group">
+                    <label>Font Family</label>
+                    <div class="dropdown" id="fontDropdown">
+                        <button class="dropdown-btn" data-type="font">
+                            <span>Inter</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="dropdown-menu">
+                            <div data-value="Arial">Arial</div>
+                            <div data-value="Helvetica">Helvetica</div>
+                            <div data-value="Times New Roman">Times New Roman</div>
+                            <div data-value="Courier New">Courier New</div>
+                            <div data-value="Georgia">Georgia</div>
+                            <div data-value="Verdana">Verdana</div>
+                            <div data-value="Inter">Inter</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Size Dropdown -->
+                <div class="control-group">
+                    <label>Font Size</label>
+                    <div class="dropdown" id="sizeDropdown">
+                        <button class="dropdown-btn" data-type="size">
+                            <span>24px</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="dropdown-menu">
+                            <div data-value="16">16px</div>
+                            <div data-value="18">18px</div>
+                            <div data-value="20">20px</div>
+                            <div data-value="22">22px</div>
+                            <div data-value="24">24px</div>
+                            <div data-value="28">28px</div>
+                            <div data-value="32">32px</div>
+                            <div data-value="36">36px</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Color Dropdown -->
+                <div class="control-group">
+                    <label>Text Color</label>
+                    <div class="dropdown" id="colorDropdown">
+                        <button class="dropdown-btn" data-type="color">
+                            <span>White</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="dropdown-menu color-menu">
+                            <div data-value="white" style="color:white;">⬤ White</div>
+                            <div data-value="yellow" style="color:#FFD700;">⬤ Yellow</div>
+                            <div data-value="cyan" style="color:#00FFFF;">⬤ Cyan</div>
+                            <div data-value="lime" style="color:#00FF00;">⬤ Lime</div>
+                            <div data-value="red" style="color:#FF4444;">⬤ Red</div>
+                            <div data-value="black" style="color:black;">⬤ Black</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Background Dropdown -->
+                <div class="control-group">
+                    <label>Background</label>
+                    <div class="dropdown" id="bgDropdown">
+                        <button class="dropdown-btn" data-type="bg">
+                            <span>Black (75%)</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="dropdown-menu">
+                            <div data-value="black@0.75">Black (75%)</div>
+                            <div data-value="black@0.5">Black (50%)</div>
+                            <div data-value="black@0.25">Black (25%)</div>
+                            <div data-value="none">None (Transparent)</div>
+                            <div data-value="white@0.75">White (75%)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Position Dropdown -->
+                <div class="control-group">
+                    <label>Position</label>
+                    <div class="dropdown" id="positionDropdown">
+                        <button class="dropdown-btn" data-type="position">
+                            <span>Bottom Center</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="dropdown-menu">
+                            <div data-value="bottom">Bottom Center</div>
+                            <div data-value="top">Top Center</div>
+                            <div data-value="middle">Middle Center</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SRT Editor -->
+        <div class="srt-editor-section">
+            <div class="editor-toolbar">
+                <h3><i class="fas fa-code"></i> SRT Editor</h3>
+                <div class="editor-actions">
+                    <button class="btn-small" id="formatSrtBtn"><i class="fas fa-magic"></i> Format</button>
+                    <button class="btn-small" id="previewSrtBtn"><i class="fas fa-play"></i> Preview Changes</button>
+                </div>
+            </div>
+            <textarea id="srtEditor" placeholder="SRT content will appear here... Edit subtitle text, timings, or sequence numbers"></textarea>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="editor-actions-bottom">
+            <button class="btn btn-secondary" id="resetStylesBtn"><i class="fas fa-undo"></i> Reset Styles</button>
+            <button class="btn btn-primary" id="applyStylesBtn"><i class="fas fa-check"></i> Apply Styles & Continue</button>
+        </div>
+    </main>
+
+    <div class="loader-overlay" id="loader">
+        <div class="loader-spinner"></div>
+        <p>Processing...</p>
+    </div>
+
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/api.js"></script>
+    <script src="assets/js/editor.js"></script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!-- frontend/preview.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Preview & Render | Movie Recap</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-film"></i>
+                <span>MovieRecap</span>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <div class="nav-menu" id="nav-menu">
+            <ul>
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="editing.html"><i class="fas fa-edit"></i> Editor</a></li>
+                <li><a href="preview.html" class="active"><i class="fas fa-eye"></i> Preview</a></li>
+                <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="preview-header">
+            <h1><i class="fas fa-eye"></i> Preview & Render</h1>
+            <p>Preview your subtitle styling and render final video</p>
+        </div>
+
+        <!-- Video Preview Section -->
+        <div class="preview-section">
+            <div class="video-preview-container">
+                <div class="preview-video-wrapper">
+                    <video id="previewVideo" controls>
+                        <source id="previewSource" src="" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="subtitle-overlay" id="subtitleOverlay">
+                        <span id="previewSubtitle">Subtitle preview will appear here</span>
+                    </div>
+                </div>
+                <div class="preview-info">
+                    <div class="info-item">
+                        <i class="fas fa-film"></i>
+                        <span id="videoFileName">No video loaded</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-file-alt"></i>
+                        <span id="subtitleCount">0 subtitles</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Render Controls -->
+            <div class="render-controls">
+                <h3><i class="fas fa-cog"></i> Render Settings</h3>
+                <div class="render-options">
+                    <div class="control-group">
+                        <label>Output Quality</label>
+                        <select id="qualitySelect">
+                            <option value="high">High (1080p, larger file)</option>
+                            <option value="medium" selected>Medium (720p, balanced)</option>
+                            <option value="low">Low (480p, smaller file)</option>
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <label>Subtitle Style</label>
+                        <span id="styleSummary" class="style-summary">Default style</span>
+                    </div>
+                </div>
+
+                <div class="progress-container" id="progressContainer" style="display:none;">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <span id="progressText">0%</span>
+                </div>
+
+                <div class="render-buttons">
+                    <button class="btn btn-primary" id="renderBtn">
+                        <i class="fas fa-play-circle"></i> Start Rendering
+                    </button>
+                    <button class="btn btn-secondary" id="downloadBtn" style="display:none;">
+                        <i class="fas fa-download"></i> Download Video
+                    </button>
+                    <button class="btn btn-secondary" id="newProjectBtn">
+                        <i class="fas fa-plus"></i> New Project
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="loader-overlay" id="loader">
+        <div class="loader-spinner"></div>
+        <p>Rendering video with FFmpeg...</p>
+    </div>
+
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/api.js"></script>
+    <script src="assets/js/preview.js"></script>
+</body>
+</html>
